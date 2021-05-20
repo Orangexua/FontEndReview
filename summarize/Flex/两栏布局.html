@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .body{
+            display: flex;
+            position: absolute;
+            width: 800px;
+            height: 600px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid #000;
+        }
+        .son1{
+            flex: 1;
+            height: 100%;
+            background-color: beige;
+        }
+        .son2{
+            flex: 2;
+            height: 100%;
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="son1">1</div>
+        <div class="son2">2</div>
+    </div>
+</body>
+</html>
+
+<!-- justify-content //横轴排列的方式  flex-start flex-end center spece-betwen spece-around
+align-items //竖轴排列的方式  flex-start flex-end center baseline(基于此容器第一个文字基线排列)
+align-content //多行竖轴排列的方式
+flex-warp // 换行 nowarp warp warp-reverse 
+flex-direction // row row-revers colum colum-reverse
+flex-flow // flex-warp 和 flex-direction 组合体
+
+//flex 三个参数分别代表   flex-grow flex-shink flex-basis 默认（0，1，auto ）
+
+flex-basis 代表当前元素的长度 auto: 默认长度为项目的长度 未定义项目的长度，则长度根据项目的内容区域决定  inherit
+
+justify-content
+align-content
+flex 0,1,auto 
+flex-flow  -->

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="throttle">
+        防抖
+    </div>
+    <div id="jieliu">
+        节流
+    </div>
+</body>
+<style>
+    #throttle{
+        width: 100px;
+        height: 100px;
+        border:1px solid #000;
+    }
+    #jieliu {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #000;
+    }
+</style>
+<script>
+
+    function throttle(func , delay){
+        var timer = null;
+        return () =>{
+            var _this = this;
+            var _args = arguments;
+            if(!timer){
+                timer = setTimeout(() => {
+                    func.apply(_this,_args);
+                    timer = null;
+                }, delay);
+            }
+        }
+    }
+
+    function Antisharking (func , delay){
+        var timer = null;
+        return () =>{
+            var _this = this;
+            var _args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function(){
+                func.apply(_this,_args);
+            },delay)
+        }
+    }
+
+    function ajax(){
+        console.log('chenzixu');
+    }
+    var  a = document.getElementById('throttle');
+    var b = document.getElementById('jieliu');
+    a.addEventListener('mousemove',Antisharking(ajax, 1000));
+    b.addEventListener('mousemove',throttle(ajax, 1000));
+</script>
+</html>
