@@ -27,12 +27,9 @@ function bar(name, age) {
 bar.Myapply(foo, [20, 17]); 
 
 
-Function.prototype.Mybind = function () {
+Function.prototype.Mybind = function (context) {
     var _this = this;
-    var content = [].shift.call(arguments);
-    return {
-        function () {
-            
+    return function () {
+            return _this.apply(context, arguments)
         }
-    }
 }
