@@ -1,0 +1,15 @@
+<html> 
+ <body> 
+ <div id="div1">我是一个 div</div> 
+ </body> 
+ <script> 
+document.getElementById = (function( func ){ 
+ return function(){ 
+ return func.apply( document, arguments ); 
+ } 
+})( document.getElementById ); 
+var getId = document.getElementById; 
+var div = getId( 'div1' ); 
+alert (div.id); // 输出： div1
+ </script> 
+</html> 

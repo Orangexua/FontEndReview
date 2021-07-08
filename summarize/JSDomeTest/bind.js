@@ -17,11 +17,11 @@ Function.prototype.bind=function () {
     var _this=this;
     var context=arguments[0];
     var arg=[].slice.call(arguments,1);
-    return function(){
-    arg=[].concat.apply(arg,arguments);
-    _this.apply(context,arg);
+    return function () {
+      arg=[].concat.apply(arg,arguments);
+      _this.apply(context,arg);
     }
-    };
+  };
 
 Function.prototype.Mybind = function () {
     var _this = this;
@@ -34,3 +34,21 @@ Function.prototype.Mybind = function () {
         }
     }
 }
+
+Function.prototype.Bind = function () {
+  var self = this;
+  var context = [].shift.call(arguments);
+  var arg = [].slice.call(arguments);
+  return function () {
+    return self.apply( context , [].concat.call( arg , [].shift.call(arguments)))
+  }
+}
+
+var obj = { 
+  name: 'sven' 
+}; 
+var func = function( a, b, c, d ){ 
+  console.log( this.name ); // 输出：sven 
+  console.log( [ a, b, c, d ] ) // 输出：[ 1, 2, 3, 4 ] 
+}.bind( obj, 1, 2); 
+func(); 

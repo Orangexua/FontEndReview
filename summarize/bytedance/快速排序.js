@@ -1,28 +1,4 @@
-// function quickSort(array, left, right) {
-//     // 　　console.time('1.快速排序耗时');
-//     　　if (left < right) {
-//     　　　　var x = array[right], i = left - 1, temp;
-//     　　　　for (var j = left; j <= right; j++) {
-//     　　　　　　if (array[j] <= x) {
-//     　　　　　　　　i++;
-//     　　　　　　　　temp = array[i];
-//     　　　　　　　　array[i] = array[j];
-//     　　　　　　　　array[j] = temp;
-//     　　　　　　}
-//     　　　　}
-//     // 　　　　console.log(array) ;
-//     // 　　　　console.log(left,i) ;
-//     　　　　quickSort(array, left, i - 1);
-//     // 　　　　console.log(array)
-//     // 　　　　console.log(i,right)
-//     　　　　quickSort(array, i + 1, right);
-//     　　}
-//     // 　　console.timeEnd('1.快速排序耗时');
-//     // 　　console.log(array)
-//     　　return array;
-//     }
 
-// //快速排序  1
 
 var arr=[1,9,2,6,4,3,8,6,5,7];
 // function quickSort1 (arr) {
