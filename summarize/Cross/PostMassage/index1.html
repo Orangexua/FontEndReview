@@ -13,6 +13,16 @@
     console.log(e.data) //我爱你
     e.source.postMessage('我不爱你', e.origin)
  }
+
+ // n
+
+Function.prototype.MyNew = function () {
+  var obj = {}
+  constructor = [].shift.call(arguments)
+  obj.__proto__ = constructor.prototype
+  constructor.apply(obj,arguments)
+  return obj
+}
 </script>
 </body>
 </html>
