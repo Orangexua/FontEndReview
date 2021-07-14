@@ -17,7 +17,7 @@ arr.prototype.study = function () {
 }
 arr.prototype.getUp = function () {
     console.log('6:20')
-}
+} 
 
 console.log(NewFunction(arr));
 
