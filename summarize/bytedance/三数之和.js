@@ -1,37 +1,25 @@
-function moreAdd (nums){
-    let len = nums.length;
-    const result = [];
-    if (len < 3){
-        return result;
-    }   
-    nums.sort((a,b) => a - b);
-    for (var i = 0 ; i < nums.length -2; i ++){
-        if(nums[i] > 0){
-            break
-        }
-        // 避免掉重复的情况
-        if(i && nums[i] === nums[i - 1]){
-            continue
-        }
-        let left = i;
-        let right = len - 1;
-        while ( left < right){
-            const sum = nums[i] + nums[left] + nums[right];
-            if (sum === 0){
-                result.push([nums[i],nums[left++],nums[right--]]);
-                while(nums[left] === nums[left - 1]){
-                    left ++
-                }
-                while(nums[right] === nums[right + 1]){
-                    right --
-                }
-            }else if(sum > 0){
-                right --
-            }else{
-                left ++
-            }
-        }
+var threeSum = function ( arr ) {
+  var len = arr.length;
+  var res = []
+  var Arr = arr.sort( ( a , b ) =>  a - b)
+  if ( len < 3 || Arr[0] > 0 || arr == null ) return [];
+  for ( var i = 0 ; i < len ; i ++) {
+    if ( i > 0 && Arr[i] == Arr[ i - 1]) continue;
+    let L = i + 1;
+    let R = len - 1;
+    while ( L < R) {
+      if ( (Arr[i] + Arr[L] + Arr[R]) === 0 ) {
+        res.push([Arr[i],Arr[L],Arr[R]])
+        while (L < R && Arr[L] == Arr[L + 1]) L ++;
+        while (L < R && Arr[R] == Arr[R - 1]) R --;
+        L ++;
+        R --;
+      }
+      else if ( (Arr[i] + Arr[L] + Arr[R]) > 0) R--;
+      else if ( (Arr[i] + Arr[L] + Arr[R]) < 0) L++;
     }
-    return result;
+  }
+  return res;
 }
-console.log(moreAdd(nums));
+
+console.log(threeSum([-1,0,1,2,-1,-4]))
