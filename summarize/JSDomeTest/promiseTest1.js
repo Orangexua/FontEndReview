@@ -18,3 +18,7 @@ new Promise(function(resolve){
     console.log('promise2')
 })
 console.log('script end')
+
+// script Start 
+// async1 start
+
