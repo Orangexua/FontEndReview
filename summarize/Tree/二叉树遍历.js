@@ -73,6 +73,9 @@ BinarySearchTree.prototype.midOrder = function(cb) {
 BinarySearchTree.prototype.lastOrder = function(cb) {
   _lastOrderNode(this.root, cb)
 }
+BinarySearchTree.prototype.levelOrder = function() {
+  _levelOrder(this.root)
+}
 // 先序遍历递归函数
 function _preOrderNode(node, cb) {
   // 如果在处理过程中，左右子树都为null后，则停止递归
@@ -112,6 +115,28 @@ function _lastOrderNode(node, cb) {
     cb(node.key);
   }
 }
+//层次遍历
+function _levelOrder(node) {
+  const ret = [];
+  if (!node) {
+      return ret;
+  }
+
+  const q = [];
+  q.push(node);
+  while (q.length !== 0) {
+      const currentLevelSize = q.length;
+      ret.push([]);
+      for (let i = 1; i <= currentLevelSize; ++i) {
+          const node = q.shift();
+          ret[ret.length - 1].push(node.val);
+          if (node.left) q.push(node.left);
+          if (node.right) q.push(node.right);
+      }
+  }
+      
+  return ret;
+};
 let pre = ""
 bsts.preOrder((key) => {
   pre += key + " "
@@ -127,3 +152,5 @@ bsts.lastOrder((key) => {
   last += key + " "
 })
 console.log("后序遍历测试" + last)
+
+console.log(bsts.levelOrder())
