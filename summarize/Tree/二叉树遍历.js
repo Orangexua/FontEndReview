@@ -121,9 +121,10 @@ function _levelOrder(node) {
   if (!node) {
       return ret;
   }
-
   const q = [];
+  console.log(node)
   q.push(node);
+  console.log('q.length' + q.length);
   while (q.length !== 0) {
       const currentLevelSize = q.length;
       ret.push([]);
@@ -135,22 +136,22 @@ function _levelOrder(node) {
       }
   }
       
-  return ret;
+  return ret
 };
-let pre = ""
-bsts.preOrder((key) => {
-  pre += key + " "
-})
-console.log("先序遍历测试" + pre)
-let mid = ""
-bsts.midOrder((key) => {
-  mid += key + " "
-})
-console.log("中序遍历测试" + mid)
-let last = ""
-bsts.lastOrder((key) => {
-  last += key + " "
-})
-console.log("后序遍历测试" + last)
+// let pre = ""
+// bsts.preOrder((key) => {
+//   pre += key + " "
+// })
+// console.log("先序遍历测试" + pre)
+// let mid = ""
+// bsts.midOrder((key) => {
+//   mid += key + " "
+// })
+// console.log("中序遍历测试" + mid)
+// let last = ""
+// bsts.lastOrder((key) => {
+//   last += key + " "
+// })
+// console.log("后序遍历测试" + last)
 
 console.log(bsts.levelOrder())
