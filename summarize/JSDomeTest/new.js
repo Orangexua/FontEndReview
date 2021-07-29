@@ -21,3 +21,15 @@ arr.prototype.getUp = function () {
 
 console.log(NewFunction(arr));
 
+
+Function.prototype.myCall = function (content) {
+  var content = Object.create(window) || content;
+      content.fn = this;
+  var args = [];
+  for ( var i = 0 ; i < arguments.length ; i ++) {
+    args.push('arguments[' + i + ']' );
+  }
+  var result = eval('content.fn(' + args + ')');
+  delete content.fn;
+  return result;
+}
