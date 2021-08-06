@@ -97,4 +97,16 @@ class myEventEmitter {
 
 ```
 
-### 使用 Context API 维护全局状态
+### react 全局通信方式
+
+Context API
+
+图解 Context API 工作流
+Context API 有 3 个关键的要素：React.createContext、Provider、Consumer。
+
+Provider 作为数据的提供方，可以将数据下发给自身组件树中任意层级的 Consumer
+
+![](E:\20210703\FontEndReview\summarize\hooks\asstes\img.png)
+
+**Cosumer 不仅能够读取到 Provider 下发的数据，还能读取到这些数据后续的更新。这意味着数据在生产者和消费者之间能够及时同步，这对 Context 这种模式来说至关重要。**
+
