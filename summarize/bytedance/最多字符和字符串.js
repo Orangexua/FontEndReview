@@ -18,18 +18,18 @@ var str = 'sdfasdfqwerfrfsda'
 // console.log(MoreArr(str));
 
 //reduce方法
-function FoundMaxChar(str){
-    var obj = {};
-    for(var i = 0 ; i < str.length ; i ++){
-        var char = str.charAt(i)
-        if(obj[char]){
-            obj[char]++;
-        }else{
-            obj[char] = 1;
-        }
-    }
-    return obj;
-}
+// function FoundMaxChar(str){
+//     var obj = {};
+//     for(var i = 0 ; i < str.length ; i ++){
+//         var char = str.charAt(i)
+//         if(obj[char]){
+//             obj[char]++;
+//         }else{
+//             obj[char] = 1;
+//         }
+//     }
+//     return obj;
+// }
 
 function reduceMoreArr(str){
     var arr = str.split('');
